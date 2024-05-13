@@ -77,15 +77,57 @@ class Clinica {
     }
 
     public static void deleteVet(Statement sentencia) {
+        sc = new Scanner(System.in);
+        System.out.println("introduce dni veterinario");
+        String dniVet = sc.next();
+
+        String query = "DELETE FROM VETERINARIOS  WHERE dni= '" + dniVet + "';";
+
+        try {
+            int i = sentencia.executeUpdate(query);
+            if(i>0){
+                System.out.println("veterinario ELIMINADO");
+            }else{
+                System.out.println("veterinario no ELIMINADO");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("error en la elimiacion de datos");;
+        }
+
+
     }
 
     public static void deleteMasc(Statement sentencia) {
+        sc = new Scanner(System.in);
+        System.out.println("introduce nombre mascota");
+        String nomMas = sc.next();
+        System.out.println("introduce especie");
+        String espMasc = sc.next();
+
+        String query = "DELETE FROM MASCOTAS WHERE  nombreMasc= '" + nomMas + "' AND especie='" + espMasc + "';";
+
+        try {
+            int i = sentencia.executeUpdate(query);
+            if(i>0){
+                System.out.println("mascota ELIMINADA");
+            }else{
+                System.out.println("mascota no ELIMINAD");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("error en la ELIMINACION de datos");;
+        }
     }
 
     public static void showPetData(Statement sentencia) {
+
     }
 
+
     public static void showVetFromMasc(Statement sentencia) {
+
+
     }
 
     // Se debe devolver la ruta al fichero exportado
