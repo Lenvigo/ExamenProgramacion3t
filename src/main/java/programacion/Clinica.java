@@ -229,9 +229,41 @@ class Clinica {
     }
 
     public static void modifyVetSalary(Statement sentencia) {
+        sc = new Scanner(System.in);
+        System.out.println("introduce nombre vet");
+        String nomVet = sc.next();
+        System.out.println("introduce NUEVO SALARIO vet");
+        float salVet = sc.nextFloat();
+
+        String query = "UPDATE VETERINARIOS set sueldo='" + salVet + "'  WHERE nombreVet='" + nomVet + "';";
+
+        try {
+            sentencia.executeUpdate(query);
+            System.out.println("salario modificado");
+        } catch (SQLException e) {
+            System.out.println("error en la carga de datos");
+            e.printStackTrace();
+        }
+
     }
 
     public static void modifyVetMasc(Statement sentencia) {
+        sc = new Scanner(System.in);
+        System.out.println("introduce nombre mascota");
+        String nomMas = sc.next();
+        System.out.println("introduce especie");
+        String espMasc = sc.next();
+        System.out.println("introduce dni del nuevo vete");
+        String idVete = sc.next();
+
+        String query = "UPDATE MASCOTAS SET veterinario='" + idVete + "' WHERE nombreMasc='" + nomMas + "' AND especie='" + espMasc + "' ;";
+        try {
+            sentencia.executeUpdate(query);
+            System.out.println("datos modificados");
+        } catch (SQLException e) {
+            System.out.println("error en la carga de datos");
+        }
+
     }
 }
 
