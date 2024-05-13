@@ -31,6 +31,10 @@ public class VeterinarioPrincipal {
 
         Creacion.crearBase(sentencia);
 
+        //INSERT INTO ESPECIALIDADES (idEsp,nombreEsp) VALUES (1,'traumatologia');
+        //INSERT INTO ESPECIALIDADES (idEsp,nombreEsp) VALUES (2,'general');
+        //INSERT INTO ESPECIALIDADES (idEsp,nombreEsp) VALUES (3,'nutricion');
+
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
         int op1 = 0;
