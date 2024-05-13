@@ -17,19 +17,19 @@ class Clinica {
 
     public static void insertVet(Statement sentencia) {
         sc = new Scanner(System.in);
-        System.out.println("introduce dni veterinario");
+        System.out.println("Introduce el dni del veterinario");
         String dniVet = sc.next();
-        System.out.println("introduce nombre veterinario");
+        System.out.println("Introduce el nombre del veterinario");
         String nomVet = sc.next();
-        System.out.println("introduce direccion vet");
+        System.out.println("Introduce la direccion del veterinario");
         String dirVet = sc.next();
-        System.out.println("introduce fecha de contratacion (yyyy-mm-dd)");
+        System.out.println("Introduce la fecha de contratacion del veterinario (yyyy-mm-dd)");
         String fechaCVet = sc.next();
-        System.out.println("introduce edad veterinario");
+        System.out.println("Introduce la edad  del veterinario");
         int age = sc.nextInt();
-        System.out.println("introduce especialidad veterinario");
+        System.out.println("Introduce la especialidad del veterinario");
         int espVet = sc.nextInt();
-        System.out.println("introduce sueldo vet");
+        System.out.println("Introduce el sueldo del veterinario");
         float salVet = sc.nextFloat();
 
         String query = "INSERT INTO VETERINARIOS (dni,nombreVet,edad,direccion,sueldo,esp,fechaCont) VALUES ('" + dniVet + "','" + nomVet + "','" + age + "','" + dirVet + "','" + salVet + "','" + espVet + "','" + fechaCVet + "');";
@@ -38,13 +38,13 @@ class Clinica {
         try {
             int i = sentencia.executeUpdate(query);
             if (i > 0) {
-                System.out.println("veterinario introducido");
+                System.out.println("Veterinario introducido correctamente en la BD");
             } else {
-                System.out.println("veterinario no introducido");
+                System.out.println("Veterinario no introducido");
             }
 
         } catch (SQLException e) {
-            System.out.println("error en la carga de datos");
+            System.out.println("Error en la carga de datos");
             ;
         }
 
@@ -53,17 +53,17 @@ class Clinica {
 
     public static void insertMasc(Statement sentencia) {
         sc = new Scanner(System.in);
-        System.out.println("introduce nombre mascota");
+        System.out.println("Introduce el nombre de la mascota");
         String nomMas = sc.next();
-        System.out.println("introduce especie");
+        System.out.println("Introduce la especie");
         String espMasc = sc.next();
-        System.out.println("introduce raza");
+        System.out.println("Introduce la raza");
         String razMas = sc.next();
-        System.out.println("introduce fecha de nacimiento (yyyy-mm-dd)");
+        System.out.println("Introduce su fecha de nacimiento (yyyy-mm-dd)");
         String feNac = sc.next();
-        System.out.println("introduce fecha dalta en plataforma (yyyy-mm-dd)");
+        System.out.println("Introduce la fecha de alta en plataforma (yyyy-mm-dd)");
         String feAlt = sc.next();
-        System.out.println("introduce dni veterinario");
+        System.out.println("Introduce el dni  del veterinario asignado");
         String dVet = sc.next();
 
 
@@ -73,13 +73,13 @@ class Clinica {
         try {
             int i = sentencia.executeUpdate(query);
             if (i > 0) {
-                System.out.println("mascota introducida");
+                System.out.println("Mascota introducida correctamente en la BD");
             } else {
-                System.out.println("mascota no introducida");
+                System.out.println("Mascota no introducida el la BD");
             }
 
         } catch (SQLException e) {
-            System.out.println("error en la carga de datos");
+            System.out.println("Error en la carga de datos");
             ;
         }
 
@@ -87,7 +87,7 @@ class Clinica {
 
     public static void deleteVet(Statement sentencia) {
         sc = new Scanner(System.in);
-        System.out.println("introduce dni veterinario");
+        System.out.println("Introduce el dni del  veterinario");
         String dniVet = sc.next();
 
         String query = "DELETE FROM VETERINARIOS  WHERE dni= '" + dniVet + "';";
@@ -95,13 +95,13 @@ class Clinica {
         try {
             int i = sentencia.executeUpdate(query);
             if (i > 0) {
-                System.out.println("veterinario ELIMINADO");
+                System.out.println("Veterinario eliminado correctamente");
             } else {
-                System.out.println("veterinario no ELIMINADO");
+                System.out.println("Veterinario no eliminado");
             }
 
         } catch (SQLException e) {
-            System.out.println("error en la elimiacion de datos");
+            System.out.println("Error en la elimiacion de datos");
             ;
         }
 
@@ -110,9 +110,9 @@ class Clinica {
 
     public static void deleteMasc(Statement sentencia) {
         sc = new Scanner(System.in);
-        System.out.println("introduce nombre mascota");
+        System.out.println("Introduce el nombre de la mascota");
         String nomMas = sc.next();
-        System.out.println("introduce especie");
+        System.out.println("Introduce la especie");
         String espMasc = sc.next();
 
         String query = "DELETE FROM MASCOTAS WHERE  nombreMasc= '" + nomMas + "' AND especie='" + espMasc + "';";
@@ -120,20 +120,20 @@ class Clinica {
         try {
             int i = sentencia.executeUpdate(query);
             if (i > 0) {
-                System.out.println("mascota ELIMINADA");
+                System.out.println("Mascota eliminada correctamente");
             } else {
-                System.out.println("mascota no ELIMINAD");
+                System.out.println("Mascota no eliminada");
             }
 
         } catch (SQLException e) {
-            System.out.println("error en la ELIMINACION de datos");
+            System.out.println("Error en la ELIMINACION de datos");
             ;
         }
     }
 
     public static void showPetData(Statement sentencia) {
         sc = new Scanner(System.in);
-        System.out.println("introduce nombre vet");
+        System.out.println("Introduce nombre veterinario");
         String nomVet = sc.next();
         String query0 = "SELECT * FROM VETERINARIOS  WHERE nombreVet='" + nomVet + "';";
         try {
@@ -155,13 +155,13 @@ class Clinica {
                         System.out.println("Fecha Nacimiento: " + fnMasc + ". Fecha alta: " + faMasc);
                     }
                 } catch (SQLException e) {
-                    System.out.println("error en la carga de datos");
+                    System.out.println("Error en la carga de datos");
                 }
             } else {
-                System.out.println("veterinario no encontrado en la bd");
+                System.out.println("Veterinario no encontrado en la bd");
             }
         } catch (SQLException e) {
-            System.out.println("error en la carga de datos");
+            System.out.println("Error en la carga de datos");
         }
     }
 
@@ -190,14 +190,14 @@ class Clinica {
                             System.out.println("Mascota:" + nomMas + ", antiguedad: " + dif + "años. Veterinario: " + nomVet + " de " + dirVet + " identificador especialidad: " + esp);
                         }
                     } catch (SQLException e) {
-                        System.out.println("error en la carga de datos de veterinario");
+                        System.out.println("Error en la carga de datos de veterinario");
                     }
 
                 }
             }
 
         } catch (SQLException e) {
-            System.out.println("error en la carga de datos");
+            System.out.println("Error en la carga de datos");
         }
 
 
@@ -214,15 +214,15 @@ class Clinica {
             while (r.next()) {
                 String nom = r.getString("nombreVet");
                 float salVet = r.getFloat("sueldo");
-                System.out.println("datos en fichero " + ruta + ": " + nom + " " + salVet);
+                System.out.println("Datos añadidos en fichero " + ruta + ": " + nom + " " + salVet);
                 writer.write(" Nombre: " + nom + ". Su salario es de " + salVet + " euros.");
                 writer.close();
             }
 
         } catch (IOException e) {
-            System.out.println("error en ficheros");
+            System.out.println("Error en los ficheros");
         } catch (SQLException e) {
-            System.out.println("error en la carga de datos");
+            System.out.println("Error en la carga de datos");
         }
 
         return ruta;
@@ -230,18 +230,18 @@ class Clinica {
 
     public static void modifyVetSalary(Statement sentencia) {
         sc = new Scanner(System.in);
-        System.out.println("introduce nombre vet");
+        System.out.println("Introduce el nombre del veterinario");
         String nomVet = sc.next();
-        System.out.println("introduce NUEVO SALARIO vet");
+        System.out.println("Introduce nuevo salario para el veterinario");
         float salVet = sc.nextFloat();
 
         String query = "UPDATE VETERINARIOS set sueldo='" + salVet + "'  WHERE nombreVet='" + nomVet + "';";
 
         try {
             sentencia.executeUpdate(query);
-            System.out.println("salario modificado");
+            System.out.println("Salario modificado");
         } catch (SQLException e) {
-            System.out.println("error en la carga de datos");
+            System.out.println("Error en la carga de datos");
             e.printStackTrace();
         }
 
@@ -249,19 +249,19 @@ class Clinica {
 
     public static void modifyVetMasc(Statement sentencia) {
         sc = new Scanner(System.in);
-        System.out.println("introduce nombre mascota");
+        System.out.println("Introduce el nombre de la mascota");
         String nomMas = sc.next();
-        System.out.println("introduce especie");
+        System.out.println("Introduce la especie");
         String espMasc = sc.next();
-        System.out.println("introduce dni del nuevo vete");
+        System.out.println("Introduce dni del nuevo veterinario");
         String idVete = sc.next();
 
         String query = "UPDATE MASCOTAS SET veterinario='" + idVete + "' WHERE nombreMasc='" + nomMas + "' AND especie='" + espMasc + "' ;";
         try {
             sentencia.executeUpdate(query);
-            System.out.println("datos modificados");
+            System.out.println("Datos modificados");
         } catch (SQLException e) {
-            System.out.println("error en la carga de datos");
+            System.out.println("Error en la carga de datos");
         }
 
     }
